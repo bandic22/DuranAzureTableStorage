@@ -1,0 +1,46 @@
+﻿@model List<DuranAssignmentBluePython.Models.UserEntity>
+
+<div class="row wrapper">
+    <div class="col-md-4">
+        <p>
+            @Html.ActionLink("Create User", "Create")
+        </p>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Picture
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Details", new { name = item.Name })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Email)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+        </tr>
+    }
+</table>
+
+
