@@ -17,12 +17,9 @@ namespace DuranAssignmentBluePython.Services
 
         public TableStorageService()
         {
-            // Retrieve the storage account from the connection string.
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             ConfigurationManager.AppSettings["StorageConnectionString"]);
-            // Create the table client.
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-            // Create the table if it doesn't exist.
             this.table = tableClient.GetTableReference("userEntity");
             table.CreateIfNotExists();
         }
